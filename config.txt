@@ -1,0 +1,4 @@
+dbhost=localhost
+dbname=proxybank
+username=root
+password=
