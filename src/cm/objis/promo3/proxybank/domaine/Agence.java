@@ -7,6 +7,7 @@ import java.util.Date;
  *
  */
 public class Agence {
+	private int id;
 	private Date creation;
 	private String numId;
 	private Bank bank;
@@ -21,6 +22,14 @@ public class Agence {
 		super();
 		this.creation = creation;
 		this.numId = numId;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Date getCreation() {
