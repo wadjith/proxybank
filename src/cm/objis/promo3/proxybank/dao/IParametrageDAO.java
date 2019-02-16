@@ -24,6 +24,13 @@ public interface IParametrageDAO {
 	public void enregistreAgence(Agence agence) throws SQLException;
 	
 	/**
+	 * @param idBank
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Agence> listAgence(int idBank) throws SQLException;
+	
+	/**
 	 * @param user
 	 * @throws SQLException
 	 */

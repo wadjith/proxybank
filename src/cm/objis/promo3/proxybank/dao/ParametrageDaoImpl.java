@@ -67,4 +67,10 @@ public class ParametrageDaoImpl implements IParametrageDAO {
 		return rs.getInt("nbuser");
 	}
 
+	@Override
+	public List<Agence> listAgence(int idBank) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
