@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import cm.objis.promo3.proxybank.domaine.Agence;
+import cm.objis.promo3.proxybank.domaine.Bank;
 import cm.objis.promo3.proxybank.domaine.Utilisateur;
 
 /**
@@ -28,7 +29,7 @@ public interface IParametrageDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<Agence> listAgence(int idBank) throws SQLException;
+	public List<Agence> listAgence(Bank bank) throws SQLException;
 	
 	/**
 	 * @param user
@@ -43,7 +44,7 @@ public interface IParametrageDAO {
 	 * @return List<Utilisateur>
 	 * @throws SQLException
 	 */
-	public List<Utilisateur> listUtilisateurs(int idAgence) throws SQLException;
+	public List<Utilisateur> listUtilisateurs(Agence agence) throws SQLException;
 	
 	/**
 	 * @param user
