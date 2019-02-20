@@ -14,6 +14,9 @@ public abstract class CompteBancaire {
 	protected String numCompte;
 	protected double solde;
 	protected String dateOuverture;
+	protected int client_id;
+	protected int decouvert;
+	protected int remuneration;
 	
 	protected Client client;
 	
@@ -23,12 +26,14 @@ public abstract class CompteBancaire {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CompteBancaire(int id, String numCompte, double solde, String dateOuverture) {
+	public CompteBancaire(int id, String numCompte, double solde, String dateOuverture ,int client_id,int remuneration) {
 		super();
 		this.id = id;
 		this.numCompte = numCompte;
 		this.solde = solde;
 		this.dateOuverture = dateOuverture;
+		this.client_id =client_id;
+		this.remuneration =remuneration ;
 	}
 
 	public String getNumCompte() {
@@ -69,6 +74,28 @@ public abstract class CompteBancaire {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+	public int getClient_id() {
+		return client_id;
+	}
+
+	public void setClient_id(int client_id) {
+		this.client_id = client_id;
+	}
+	public int getDecouvert() {
+		return decouvert;
+	}
+
+	public void setdecouvert(int decouvert) {
+		this.decouvert = decouvert;
+	}
+	
+	public int getRemuneration() {
+		return remuneration;
+	}
+
+	public void setRemuneration(int remuneration) {
+		this.remuneration = remuneration;
 	}
 	
 	

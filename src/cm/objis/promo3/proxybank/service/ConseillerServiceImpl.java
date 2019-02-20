@@ -3,7 +3,12 @@
  */
 package cm.objis.promo3.proxybank.service;
 
+import java.sql.PreparedStatement;
+
+import java.sql.*;
 import java.util.List;
+
+import com.mysql.jdbc.Connection;
 
 import cm.objis.promo3.proxybank.domaine.Client;
 import cm.objis.promo3.proxybank.domaine.CompteBancaire;
@@ -18,7 +23,10 @@ public class ConseillerServiceImpl implements IConseillerService {
 	@Override
 	public boolean enregistreClient(Client client) {
 		// TODO by ALAIN
+		
+		
 		return false;
+		
 	}
 
 	@Override
@@ -54,6 +62,12 @@ public class ConseillerServiceImpl implements IConseillerService {
 	@Override
 	public List<Client> listClientFortune(Utilisateur conseiller) {
 		// TODO by JAMAL
+		
+		
+		
+		
+		
+		
 		return null;
 	}
 

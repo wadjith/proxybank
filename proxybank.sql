@@ -12,11 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Export de la structure de la base pour proxybank
+
 CREATE DATABASE IF NOT EXISTS `proxybank` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `proxybank`;
 
--- Export de la structure de la table proxybank. agence
+
 CREATE TABLE IF NOT EXISTS `agence` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `numero_id` varchar(5) DEFAULT NULL,
@@ -32,18 +32,18 @@ CREATE TABLE IF NOT EXISTS `agence` (
 /*!40000 ALTER TABLE `agence` DISABLE KEYS */;
 /*!40000 ALTER TABLE `agence` ENABLE KEYS */;
 
--- Export de la structure de la table proxybank. bank
+
 CREATE TABLE IF NOT EXISTS `bank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table proxybank.bank : ~0 rows (environ)
+
 /*!40000 ALTER TABLE `bank` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bank` ENABLE KEYS */;
 
--- Export de la structure de la table proxybank. carte_bancaire
+
 CREATE TABLE IF NOT EXISTS `carte_bancaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) NOT NULL COMMENT 'On a deux types de cartes: visa electron et visa premier',
@@ -56,11 +56,11 @@ CREATE TABLE IF NOT EXISTS `carte_bancaire` (
   CONSTRAINT `fk_carte_bancaire_client1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table proxybank.carte_bancaire : ~0 rows (environ)
+
 /*!40000 ALTER TABLE `carte_bancaire` DISABLE KEYS */;
 /*!40000 ALTER TABLE `carte_bancaire` ENABLE KEYS */;
 
--- Export de la structure de la table proxybank. client
+
 CREATE TABLE IF NOT EXISTS `client` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) DEFAULT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 
--- Export de la structure de la table proxybank. compte
+
 CREATE TABLE IF NOT EXISTS `compte` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Il s''agit d''un compte bancaire',
   `date_ouverture` date DEFAULT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `compte` (
 /*!40000 ALTER TABLE `compte` DISABLE KEYS */;
 /*!40000 ALTER TABLE `compte` ENABLE KEYS */;
 
--- Export de la structure de la table proxybank. transaction
+
 CREATE TABLE IF NOT EXISTS `transaction` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `compte_id_source` int(11) DEFAULT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `transaction` (
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 
--- Export de la structure de la table proxybank. utilisateur
+
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) DEFAULT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   CONSTRAINT `fk_utilisateur_agence1` FOREIGN KEY (`agence_id`) REFERENCES `agence` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table proxybank.utilisateur : ~0 rows (environ)
+
 /*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
 /*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 

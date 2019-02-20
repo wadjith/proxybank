@@ -7,15 +7,17 @@ package cm.objis.promo3.proxybank.domaine;
 public class CarteBancaire {
 
 	private int numero;
-	private TypeCarte type;
+	private int client_id;
+	private String type;
 	private boolean actif;
 	
 	private Client client;
 	
+	
 	public CarteBancaire() {
 		// TODO Auto-generated constructor stub
 	}
-	public CarteBancaire(int numero, TypeCarte type) {
+	public CarteBancaire(int numero, String type) {
 		super();
 		this.numero = numero;
 		this.type = type;
@@ -27,10 +29,10 @@ public class CarteBancaire {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public TypeCarte getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(TypeCarte type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	public boolean isActif() {
@@ -45,6 +47,11 @@ public class CarteBancaire {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	
+	public int getclient_id() {
+		return client_id;
+	}
+	public void setclient_id(int client_id) {
+		this.client_id = client_id;
+	}
 
 }
