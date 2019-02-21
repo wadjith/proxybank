@@ -19,9 +19,9 @@ public boolean enregistreClient(Client client);
 	
 	public boolean modifieClient(Client client);
 	
-	public boolean supprimeClient(Client client);
+	public boolean supprimeClient(int idclient);
 	
-	public Client consulterInfoClient(Client client);
+	public Client consulterInfoClient(int idclient);
 	
 	public double virement(CompteBancaire compteS, CompteBancaire compteD, double montant);
 	

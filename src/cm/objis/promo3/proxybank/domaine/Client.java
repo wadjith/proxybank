@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class Client {
 	private int id;
+	private int id_conseiller;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -29,6 +30,13 @@ public class Client {
 
 	public int getId() {
 		return id;
+	}
+
+	public void setid_conseiller(int id_conseiller) {
+		this.id_conseiller = id_conseiller;
+	}
+	public int getid_conseiller() {
+		return this.id_conseiller ;
 	}
 
 	public void setId(int id) {

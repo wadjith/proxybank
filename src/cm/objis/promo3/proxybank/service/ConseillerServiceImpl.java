@@ -3,26 +3,45 @@
  */
 package cm.objis.promo3.proxybank.service;
 
-import java.sql.PreparedStatement;
-
 import java.sql.*;
 import java.util.List;
 
-import com.mysql.jdbc.Connection;
-
+import cm.objis.promo3.proxybank.dao.ConnectionMYSQL;
 import cm.objis.promo3.proxybank.domaine.Client;
 import cm.objis.promo3.proxybank.domaine.CompteBancaire;
 import cm.objis.promo3.proxybank.domaine.Utilisateur;
+import cm.objis.promo3.proxybank.dao.* ;
 
-/**
- * @author thierry WADJI
- *
- */
-public class ConseillerServiceImpl implements IConseillerService {
 
+
+public abstract class ConseillerServiceImpl implements IConseillerService {
+    
+	ClientDaoImpl clientdao = new ClientDaoImpl();
+	
+	
+	
 	@Override
 	public boolean enregistreClient(Client client) {
-		// TODO by ALAIN
+		// TODO by JAMAL
+		
+		
+		
+		try {
+
+			// Etape 1 : appel de la methode enregistrer client du dao
+			
+			clientdao.enregistreClient(client);
+			
+			return true ;
+			
+			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			
+			
+			
+		} 
 		
 		
 		return false;
@@ -31,19 +50,74 @@ public class ConseillerServiceImpl implements IConseillerService {
 
 	@Override
 	public boolean modifieClient(Client client) {
-		// TODO by ALAIN
+		// TODO by JAMAL
+		
+		try {
+
+			// Etape 1 : récupération de la connexion
+			clientdao.modifieClient(client);
+			return true ;
+			
+			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			
+			
+			
+		}
+		
 		return false;
 	}
 
-	@Override
 	public boolean supprimeClient(Client client) {
-		// TODO by ALAIN
+		// TODO by JAMAL
+		
+		try {
+
+			// Etape 1 : récupération de l id client et suppression
+			
+			clientdao.supprimeClient(client.getId());
+			
+			
+			return true ;
+			
+			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			
+			
+			
+		}
+		
 		return false;
 	}
 
 	@Override
-	public Client consulterInfoClient(Client client) {
-		// TODO by ALAIN
+	public Client consulterInfoClient(int idclient) {
+		// TODO by JAMAL
+		
+		
+		try {
+
+			//retourne directement le client à consulter
+			
+			
+			return clientdao.consulterInfoClient(idclient)  ;
+		
+			
+			
+			
+			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			
+			
+			
+		}
+		
 		return null;
 	}
 
@@ -55,8 +129,19 @@ public class ConseillerServiceImpl implements IConseillerService {
 
 	@Override
 	public List<Client> listClient(Utilisateur conseiller) {
-		// TODO by ALAIN
-		return null;
+		// TODO by JAMAL
+	try {
+		
+		
+		return	clientdao.listClients(conseiller.getId()) ;
+	
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		
+	return null ;	
+		
 	}
 
 	@Override
