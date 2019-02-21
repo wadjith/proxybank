@@ -14,6 +14,8 @@ import java.util.List;
 import cm.objis.promo3.proxybank.domaine.CarteBancaire;
 import cm.objis.promo3.proxybank.domaine.Client;
 import cm.objis.promo3.proxybank.domaine.CompteBancaire;
+import cm.objis.promo3.proxybank.domaine.CompteCourant;
+import cm.objis.promo3.proxybank.domaine.CompteEpargne;
 
 /**
 
@@ -27,10 +29,10 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
 			String sql = "insert into `client`('nom',`prenom`,`profession`,`telephone`,'email','ville','code_postal','adresse','utilisateur_id')" 
@@ -50,12 +52,12 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 		
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ps.executeUpdate();
 			
 			
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -72,10 +74,10 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
 			String sql = "update client set nom='"+client.getNom()+"' ,prenom='"+client.getPrenom()+"' ,profession='"+client.getProfession()+"' ,profession='"+client.getProfession()+"', telephone='"+client.getTelephone()+"' ,email='"+client.getEmail()+"' ,ville='"+client.getEmail()+"',	code_postal='"+client.getCodePostal()+"' ,adresse='"+client.getAdresse()+"' ,utilisateur_id='"+client.getid_conseiller()+"'";
@@ -87,11 +89,11 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 		
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			
 			ps.execute(sql);
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -109,10 +111,10 @@ public class ClientDaoImpl implements IClientDAO {
 		Client client = new Client();
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
 			String sql = "select solde from  compte where id=?" ;
@@ -128,7 +130,7 @@ public class ClientDaoImpl implements IClientDAO {
 
 			
 
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ResultSet rs = ps.executeQuery(sql);
 			
 			client.setId(rs.getInt("solde"));
@@ -148,7 +150,7 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -169,10 +171,10 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : préparation requête
+			// Etape 2 : prï¿½paration requï¿½te
 			
 			String sql = "SELECT * FROM client WHERE utilisateur_id='"+idConseil+"' ";
 			
@@ -180,7 +182,7 @@ public class ClientDaoImpl implements IClientDAO {
 
 			List<Client> maListclient= new ArrayList<Client>();
 
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ResultSet rs = st.executeQuery(sql);
 
 			// Etape 4 :parcours Resultset (optionnel)
@@ -207,7 +209,7 @@ public class ClientDaoImpl implements IClientDAO {
 				return maListclient;
 			}
 			
-			// Etape 5 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 5 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -223,10 +225,10 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
 			String sql = "delete from  client where id=?" ;
@@ -242,12 +244,12 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 		
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ps.executeUpdate();
 			
 			
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -264,32 +266,41 @@ public class ClientDaoImpl implements IClientDAO {
 		// TODO by JAMAL
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
-			String sql = "insert into `compte`('date_ouverture',`numero_compte`,`solde`,`client_id`,'decouvert','remuneration')" 
+			String sql = "insert into `compte`('date_ouverture',`numero_compte`,`solde`,`client_id`,`decouvert`,`remuneration`)" 
 					+"values (?,?,?,?,?,?)";
 			
 			PreparedStatement ps=  cn.prepareStatement(sql);
 			ps.setString(1, compte.getDateOuverture());
 			ps.setString(2, compte.getNumCompte());
-			ps.setInt(3, (int) compte.getSolde());
+			ps.setDouble(3, compte.getSolde());
+			ps.setInt(4, compte.getClient().getId());
 			
-			ps.setInt(4, compte.getClient_id());
-			ps.setInt(5, compte.getDecouvert());
-			ps.setInt(6, compte.getRemuneration());
+			if(compte instanceof CompteEpargne) {
+				ps.setNull(5, java.sql.Types.INTEGER);
+				ps.setFloat(6, ((CompteEpargne)compte).getRenumeration());
+				
+			}
+			if(compte instanceof CompteCourant) {
+				ps.setInt(5, ((CompteCourant)compte).getDecouvert());
+				ps.setNull(6, java.sql.Types.FLOAT);
+				
+			}
+			
 			
 			
 		
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ps.executeUpdate();
 			
 			
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -306,10 +317,10 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
 			String sql = "delete from  compte where id=?" ;
@@ -325,12 +336,12 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 		
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ps.executeUpdate();
 			
 			
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -347,10 +358,10 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
 			String sql = "update compte set id='"+idCompte+"' ,solde='"+solde+"'";
@@ -362,11 +373,11 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 		
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			
 			ps.execute(sql);
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -385,13 +396,13 @@ public class ClientDaoImpl implements IClientDAO {
 		try {
 
 			
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
-			String sql = "select solde from  compte where id=?" ;
+			String sql = "select solde from  compte where id= ?" ;
 			
 			PreparedStatement ps=  cn.prepareStatement(sql);
 			
@@ -404,7 +415,7 @@ public class ClientDaoImpl implements IClientDAO {
 
 			
 
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ResultSet rs = ps.executeQuery(sql);
 			
 			
@@ -413,7 +424,7 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -438,15 +449,15 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		
 		
-		//création d'une collection des compte_bancaire
+		//crï¿½ation d'une collection des compte_bancaire
 				List<CompteBancaire> maListcomptesolde= new ArrayList<CompteBancaire>();
 			
 				try {
 
-					// Etape 1 : récupération de la connexion
+					// Etape 1 : rï¿½cupï¿½ration de la connexion
 					Connection cn = ConnectionMYSQL.getInstance();
 
-					// Etape 2 : préparation requête
+					// Etape 2 : prï¿½paration requï¿½te
 					
 					String sql = "SELECT * FROM compte WHERE solde='"+montant+"' ";
 					
@@ -454,7 +465,7 @@ public class ClientDaoImpl implements IClientDAO {
 
 					
 
-					// Etape 3 : exécution requête
+					// Etape 3 : exï¿½cution requï¿½te
 					ResultSet rs = st.executeQuery(sql);
 
 					// Etape 4 :parcours Resultset (optionnel)
@@ -470,7 +481,7 @@ public class ClientDaoImpl implements IClientDAO {
 						return maListcomptesolde;
 					}
 					
-					// Etape 5 : gestion des exceptions et libération 'automatique' des ressources
+					// Etape 5 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 				} catch (SQLException e) {
 					e.printStackTrace();
 					
@@ -488,22 +499,22 @@ public class ClientDaoImpl implements IClientDAO {
 	@Override
 	public List<CompteBancaire> listCompteClient(int idClient) throws SQLException {
 		// TODO by JAMAL
-		//création d'une collection des compte_bancaire
+		//crï¿½ation d'une collection des compte_bancaire
 		List<CompteBancaire> maListcompte= new ArrayList<CompteBancaire>();
 	
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : préparation requête
+			// Etape 2 : prï¿½paration requï¿½te
 			
 			String sql = "SELECT * FROM compte WHERE id='"+idClient+"' ";
 			
 			Statement st = cn.createStatement();
 
 			
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ResultSet rs = st.executeQuery(sql);
 
 			// Etape 4 :parcours Resultset (optionnel)
@@ -527,7 +538,7 @@ public class ClientDaoImpl implements IClientDAO {
 				
 			}
 			
-			// Etape 5 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 5 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -550,10 +561,10 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
 			String sql = "insert into `carte_bancaire `('type',`actif`,`numero`,`client_id`)" 
@@ -570,12 +581,12 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 		
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			ps.executeUpdate();
 			
 			
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -593,10 +604,10 @@ public class ClientDaoImpl implements IClientDAO {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			Connection cn = ConnectionMYSQL.getInstance();
 
-			// Etape 2 : Création d'un objet  statement et preparation de la requete
+			// Etape 2 : Crï¿½ation d'un objet  statement et preparation de la requete
 			
 
 			String sql = "update carte_bancaire set type='"+carte.getType()+"' ,actif='"+carte.isActif()+"' ,numero='"+carte.getNumero()+"' ,client_id='"+carte.getclient_id()+"'";
@@ -608,11 +619,11 @@ public class ClientDaoImpl implements IClientDAO {
 			
 			
 		
-			// Etape 3 : exécution requête
+			// Etape 3 : exï¿½cution requï¿½te
 			
 			ps.execute(sql);
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
