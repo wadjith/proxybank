@@ -16,10 +16,14 @@ import cm.objis.promo3.proxybank.dao.* ;
 
 public abstract class ConseillerServiceImpl implements IConseillerService {
     
-	ClientDaoImpl clientdao = new ClientDaoImpl();
+	private IClientDAO clientdao;
 	
 	
-	
+	public ConseillerServiceImpl() {
+		super();
+		this.clientdao = new ClientDaoImpl();
+	}
+
 	@Override
 	public boolean enregistreClient(Client client) {
 		// TODO by JAMAL
@@ -34,7 +38,7 @@ public abstract class ConseillerServiceImpl implements IConseillerService {
 			
 			return true ;
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -54,11 +58,11 @@ public abstract class ConseillerServiceImpl implements IConseillerService {
 		
 		try {
 
-			// Etape 1 : récupération de la connexion
+			// Etape 1 : rï¿½cupï¿½ration de la connexion
 			clientdao.modifieClient(client);
 			return true ;
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -75,14 +79,14 @@ public abstract class ConseillerServiceImpl implements IConseillerService {
 		
 		try {
 
-			// Etape 1 : récupération de l id client et suppression
+			// Etape 1 : rï¿½cupï¿½ration de l id client et suppression
 			
 			clientdao.supprimeClient(client.getId());
 			
 			
 			return true ;
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -101,7 +105,7 @@ public abstract class ConseillerServiceImpl implements IConseillerService {
 		
 		try {
 
-			//retourne directement le client à consulter
+			//retourne directement le client ï¿½ consulter
 			
 			
 			return clientdao.consulterInfoClient(idclient)  ;
@@ -109,7 +113,7 @@ public abstract class ConseillerServiceImpl implements IConseillerService {
 			
 			
 			
-			// Etape 4 : gestion des exceptions et libération 'automatique' des ressources
+			// Etape 4 : gestion des exceptions et libï¿½ration 'automatique' des ressources
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
