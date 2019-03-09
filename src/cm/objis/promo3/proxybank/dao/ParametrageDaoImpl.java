@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cm.objis.promo3.proxybank.domaine.Agence;
 import cm.objis.promo3.proxybank.domaine.Bank;
@@ -265,6 +267,33 @@ public class ParametrageDaoImpl implements IParametrageDAO {
 				}
 				
 				return userList;
+	}
+
+	@Override
+	public Map<Integer, String> listAgence() throws SQLException {
+		//création d'une collection des agences
+		Map<Integer, String> maMapAgence= new HashMap<>();
+	
+		// Etape 1 : récupération de la connexion
+		Connection cn = ConnectionMYSQL.getInstance();
+
+		// Etape 2 : préparation de la requête
+		String sql = "SELECT * FROM agence";
+		
+		Statement st = cn.createStatement();
+
+		// Etape 3 : exécution de la requête
+		ResultSet rs = st.executeQuery(sql);
+
+		// Etape 4 :parcours Resultset (optionnel)
+		while (rs.next()) {
+			
+			//recuperation des valeurs d'une ligne de la table, pour initialiser dans un objet Agence
+			maMapAgence.put(rs.getInt("id"), rs.getString("numero_id"));
+			
+		}
+		
+		return maMapAgence;
 	}
 
 

@@ -6,6 +6,7 @@ package cm.objis.promo3.proxybank.service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import cm.objis.promo3.proxybank.dao.IParametrageDAO;
 import cm.objis.promo3.proxybank.dao.ParametrageDaoImpl;
@@ -98,6 +99,32 @@ public class ParametrageServiceImpl implements IParametrageService {
 			e.printStackTrace();
 		} 
 		return result;
+	}
+
+	@Override
+	public Map<Integer, String> listeTouteAgence() {
+		Map<Integer, String> agences = null;
+		
+		try {
+			agences = dao.listAgence();
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return agences;
+	}
+
+	@Override
+	public List<Utilisateur> listUtilisateurs() {
+		List<Utilisateur> users = null;
+		
+		try {
+			users = dao.listUtilisateurs();
+		} catch (SQLException e) {
+			// TODO: Log Exception
+			e.printStackTrace();
+		}
+		return users;
 	}
 
 }

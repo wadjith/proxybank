@@ -5,6 +5,7 @@ package cm.objis.promo3.proxybank.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import cm.objis.promo3.proxybank.domaine.Agence;
 import cm.objis.promo3.proxybank.domaine.Bank;
@@ -23,6 +24,15 @@ public interface IParametrageDAO {
 	 * @throws SQLException
 	 */
 	public void enregistreAgence(Agence agence) throws SQLException;
+	
+	
+	/**
+	 * Liste de toutes les agences 
+	 * 
+	 * @return 
+	 * @throws SQLException
+	 */
+	public Map<Integer, String> listAgence() throws SQLException;
 	
 	/**
 	 * @param idBank

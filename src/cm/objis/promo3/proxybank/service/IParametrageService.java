@@ -4,6 +4,7 @@
 package cm.objis.promo3.proxybank.service;
 
 import java.util.List;
+import java.util.Map;
 
 import cm.objis.promo3.proxybank.domaine.Agence;
 import cm.objis.promo3.proxybank.domaine.Utilisateur;
@@ -25,10 +26,25 @@ public interface IParametrageService {
 	public boolean enregistreAgence(Agence agence);
 	
 	/**
+	 * Liste de toutes les agences dans une Map
+	 * 
+	 * @return Map<Integer, String>
+	 */
+	public Map<Integer, String> listeTouteAgence();
+	
+	/**
 	 * @param user
 	 * @return boolean
 	 */
 	public boolean enregistreUtilisateur(Utilisateur user);
+	
+	/**
+	 * Liste de tous les utilisateurs
+	 * 
+	 * @param agence
+	 * @return List<Utilisateur>
+	 */
+	public List<Utilisateur> listUtilisateurs();
 	
 	/**
 	 * Liste des utilisateurs d'une agence
