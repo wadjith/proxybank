@@ -38,9 +38,17 @@ public interface IParametrageDAO {
 	public void enregistreUtilisateur(Utilisateur user) throws SQLException;
 	
 	/**
+	 * Liste des utilisateurs
+	 * 
+	 * @return List<Utilisateur>
+	 * @throws SQLException
+	 */
+	public List<Utilisateur> listUtilisateurs() throws SQLException;
+	
+	/**
 	 * Liste des utilisateurs d'une agence
 	 * 
-	 * @param idAgence
+	 * @param  Agence
 	 * @return List<Utilisateur>
 	 * @throws SQLException
 	 */

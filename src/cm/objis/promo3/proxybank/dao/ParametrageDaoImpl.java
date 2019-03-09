@@ -227,5 +227,45 @@ public class ParametrageDaoImpl implements IParametrageDAO {
 		return maListAgence;
 	}
 
+	@Override
+	public List<Utilisateur> listUtilisateurs() throws SQLException {
+		//création d'une collection des utilisateurs
+				List<Utilisateur> userList = new ArrayList<Utilisateur>();
+			
+				// Etape 1 : récupération de la connexion
+				Connection cn = ConnectionMYSQL.getInstance();
+
+				// Etape 2 : préparation de la requête
+				String sql = "SELECT * FROM utilisateur";
+				
+				Statement st = cn.createStatement();
+
+				// Etape 3 : exécution de la requête
+				ResultSet rs = st.executeQuery(sql);
+
+				// Etape 4 :parcours Resultset (optionnel)
+				while (rs.next()) {
+					
+					//recuperation des valeurs d'une ligne de la table, pour initialiser dans un objet Agence
+					Utilisateur user =  new Utilisateur();
+					Agence agence = new Agence();
+					agence.setId(rs.getInt("agence_id"));
+					
+					user.setId(rs.getInt("id"));
+					user.setNom(rs.getString("nom"));
+					user.setPrenom(rs.getString("prenom"));
+					user.setTelephone(rs.getString("telephone"));
+					user.setFonction(TypeUtilisateur.valueOf(rs.getString("fonction").toUpperCase()));
+					user.setLogin(rs.getString("login"));
+					user.setAgence(agence);
+					
+					//ajout d'une agence dans List
+					userList.add(user); 
+					
+				}
+				
+				return userList;
+	}
+
 
 }
